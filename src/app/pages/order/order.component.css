@@ -1,0 +1,41 @@
+.wineColor {
+  color: rgb(92, 21, 58);
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.adminImg {
+  height: 150px;
+  width: 50px;
+}
+
+.count {
+  width: 35px;
+}
+
+.buttonBack {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color: rgba(44, 2, 22, 0.678);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: 20px;
+  color: wheat;
+  transition: 0.5s;
+}
+
+
+.buttonBack:hover {
+  background-color: rgba(97, 23, 45, 0.795);
+  height: 150px;
+  width: 150px;
+  font-size: 25px;
+  transition: 0.5s;
+}

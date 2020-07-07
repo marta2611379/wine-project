@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="image list-group-item">
+        <img class='prodImg' [src]='clickObjNew.image' alt="wine image">
+    </div>
+    <div class="wine-content">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item wineColor">
+                <h1 class="card-title wineColor"> {{clickObjNew.name|wine}}
+                    {{clickObjNew.price|currency: 'UAH':'symbol-narrow'}}</h1>
+            </li>
+            <li class="list-group-item wineColor">
+                <h4>{{clickObjNew.color|wine}} {{clickObjNew.type}}</h4>
+            </li>
+            <li class="list-group-item wineColor">
+                <h5>{{clickObjNew.country|wine}}/{{clickObjNew.manufacturer|wine}} </h5>
+            </li>
+            <li class="list-group-item wineColor about">
+                {{clickObjNew.about}}
+            </li>
+            <li class="list-group-item wineColor">
+                <button class="card-link btn btn-block text-secondary shop" (click)="orders(clickObjNew)">У кошик</button>
+            </li>
+        </ul>
+    </div>
+    <div [routerLink]="['/products']" (click)='sendToParent()' class="buttonBack">
+        <div class="buttonBackLayer"></div>
+    </div>
+</div>

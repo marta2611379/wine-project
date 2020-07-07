@@ -1,0 +1,79 @@
+<div class="main-prod" *ngIf="displayWine">
+  <div class="filters">
+
+    <div class="select-filter">
+      <div class="select-h">Колір вина</div>
+      <select class="filter-select" (change)="onChangeColor($event)">
+        <option selected value="">Всі</option>
+        <option value="червоне">Червоне</option>
+        <option value="біле">Біле</option>
+        <option value="рожеве">Рожеве</option>
+      </select>
+    </div>
+
+    <div class="select-filter">
+      <div class="select-h">Вид вина</div>
+      <select class="filter-select" (change)="onChangeType($event)">
+        <option selected value="">Всі</option>
+        <option value="сухе">сухе</option>
+        <option value="напівсухе">напівсухе</option>
+        <option value="напівсолодке">напівсолодке</option>
+        <option value="солодке">солодке</option>
+        <option value="кріплене сухе">кріплене сухе</option>
+        <option value="кріплене напівсолодке">кріплене напівсолодке</option>
+        <option value="кріплене солодке">кріплене солодке</option>
+        <option value="кріплене десертне">кріплене десертне</option>
+        <option value="лікерне">лікерне</option>
+        <option value="ароматизоване">ароматизоване</option>
+        <option value="ігристе">ігристе</option>
+      </select>
+    </div>
+
+    <div class="select-filter">
+      <div class="select-h">Виробник вина</div>
+      <select class="filter-select" (change)="onChangeManufacturer($event)">
+        <option selected value="">Всі</option>
+        <option *ngFor="let manufacturer of arrayManufacturers" value={{manufacturer.manufacturer}}>
+          {{manufacturer.manufacturer|wine}}</option>
+      </select>
+    </div>
+
+    <div class="select-filter">
+      <div class="select-h">Ціна вина</div>
+      <input (change)="onChangePriceStart($event)" class="price" min="0" max="9900" step="100" type="number"
+        [(ngModel)]="priceValStart" name="priceValStart">
+      <span> - </span>
+      <input (change)="onChangePriceEnd($event)" class="price" min="100" max="10000" step="100" type="number"
+        [(ngModel)]="priceValEnd" name="priceValEnd">
+    </div>
+  </div>
+  <div class="goods">
+    <div class="has-text-centered">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+    <div class="threeGoods">
+      <div class="card" style="width: 18rem;"
+        *ngFor="let wine of adminWines|wineColor:filterColor|wineType:filterType|wineManufacturer:filterManufacturer|winePrice:priceValStart:priceValEnd| paginate: { itemsPerPage: 9, currentPage: page }">
+        <div (click)="wineComponent(wine, wine.id)" [routerLink]="['wine-about/', wine.id]" class="card-main">
+          <img class="card-img-top prodImg" [src]=wine.image alt="Card image cap">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item wineColor">
+              <h5 class="card-title wineColor">{{wine.name|wine}} <br> <br>
+                {{wine.price|currency: 'UAH':'symbol-narrow'}}
+              </h5>
+            </li>
+            <li class="list-group-item wineColor">{{wine.manufacturer|wine}} /{{wine.country|wine}}</li>
+            <li class="list-group-item wineColor">{{wine.color|wine}} {{wine.type}}</li>
+          </ul>
+        </div>
+        <button class="card-link btn btn-block text-white btnCol" (click)="orders(wine)">У кошик</button>
+      </div>
+    </div>
+    <div class="has-text-centered" (click)="scrollToTop()">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+</div>
+
+<app-wine-about [clickWineNew]="clickWine" [clickObjNew]='clickObj' [displayWine]="displayWine"
+  (outToParent)='receiveFromChild($event)' *ngIf="!displayWine"></app-wine-about>

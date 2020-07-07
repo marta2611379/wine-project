@@ -1,0 +1,65 @@
+.img{
+    height: 200px;
+    width: 100%;
+    background-image: url(/assets/img/4.webp);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100%;
+    margin-bottom: 10px;
+}
+.about{
+    font-family: 'Eczar', serif;
+    min-height: 400px;
+    width: 100%;
+    display:flex;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+/* 
+.aboutImg{
+    background-image: url(/assets/img/glass2.jpg);
+    background-size: 100% 100% ;
+    background-repeat: no-repeat;
+   background-position: center;
+   min-height: 400px;
+    width: 100%;
+} */
+.main{
+    display: flex;
+}
+
+.glass{
+    height: 500px;
+    width: 900px;
+    background-image: url(/assets/img/glass3.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+   background-position: center;
+}
+.aboutText{
+    font-size:25px;
+    font-weight: bold;
+    width: 100%;
+    padding: 50px;
+    padding-left: 100px;
+    color: rgb(70, 17, 44);
+    text-align: justify;
+    font-family: 'Eczar', serif;
+}
+
+.wineLove{ 
+    padding: 30px;
+    font-weight: bolder;
+    letter-spacing: 10px;
+}
+.wine{
+    font-size: 80px;
+    color: rgb(65, 4, 35);
+}
+
+.love{
+    font-size: 60px;
+    color: rgb(75, 1, 38);
+    padding-left: 50px;
+
+}

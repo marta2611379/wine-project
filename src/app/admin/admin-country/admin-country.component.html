@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text prepend-lable">Країна:</label>
+        </div>
+        <input class="prepend-input" [(ngModel)]="adminCountry" name="adminCountry" type="text">
+        <button class="btn-outline-secondary btn" (click)="addCountry()" [disabled]="disabledStatusAdd()">ADD</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th scope="col">Країна</th>
+                <th scope="col">Редагувати</th>
+                <th scope="col">Видалити</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let country of arrayCountries; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{country.country}}</td>
+                <td><button class="btn btn-warning" (click)="editCountry(country)" data-toggle="modal"
+                        data-target="#exampleModalCenter">edit</button></td>
+                <td><button class="btn btn-danger" (click)="deleteCountry(country)">delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade " id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Edit country</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="admin-container">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text prepend-lable">Країна:</label>
+                        </div>
+                        <input class="prepend-input" [(ngModel)]="countryEdit" name="countryEdit" type="text"> <br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="saveEditCountry()"
+                        data-target="#exampleModalCenter" data-toggle="modal" [disabled]="disabledStatusSave()">Зберегти зміни</button>
+                </div>
+            </div>
+        </div>
+    </div>

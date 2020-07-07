@@ -1,0 +1,21 @@
+<div class="out-cotainer">
+    <div class="container">
+        <div class="has-text-centered">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+        <div class="blog"
+            *ngFor="let blog of adminBlogs| paginate: { itemsPerPage: 5, currentPage: page }; let i = index">
+            <!-- <div class="blog" ng-repeat="blog in adminBlogs" ng-if="$index % 3 == 1"> -->
+            <div *ngIf="i % 2 == 1" class="blog-img"><img class="blog-img" [src]=blog.image alt="blog img"></div>
+            <div class="blog-content">
+                <h3>{{blog.name|uppercase}}</h3>
+                <p class="text-content">{{blog.text}}</p>
+            </div>
+            <div *ngIf="i % 2 == 0" class="blog-img"><img class="blog-img" [src]=blog.image alt="blog img"> </div>
+        </div>
+        <div class="has-text-centered" (click)="scrollToTop()">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </div>
+
+</div>

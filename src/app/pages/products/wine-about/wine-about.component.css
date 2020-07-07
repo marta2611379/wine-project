@@ -1,0 +1,79 @@
+.image {
+    width: 20%;
+    height: 86vh;
+}
+
+.wine-content {
+    width: 70%;
+    height: 86vh;
+    overflow-y: scroll;
+    position: relative;
+    ;
+}
+
+.wine-content::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    padding-top: 82px;
+}
+
+.prodImg {
+    height: 100%;
+    width: auto;
+}
+
+.about {
+    letter-spacing: 0.5px;
+    line-height: 25px;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.wineColor {
+    color: rgb(92, 21, 58);
+}
+
+.buttonBack,
+.buttonBackLayer {
+    position: fixed;
+    top: 50vh;
+    left: 0;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.buttonBack {
+    background-image: url(/assets/img/arrow.png);
+    background-size: 100% 100%;
+    background-position: center;
+    z-index: 22;
+}
+
+.buttonBackLayer {
+    background-color: rgba(255, 255, 255, 0.76);
+    z-index: 33;
+}
+
+.buttonBackLayer:hover,
+.buttonBack:hover {
+    background-color: rgba(255, 255, 255, 0);
+    height: 120px;
+    width: 120px;
+    transition: 0.5s;
+}
+
+.shop {
+    /* background-color: rgb(87, 15, 39); */
+    border: 2px solid  rgb(87, 15, 39);
+    margin: 0 auto;
+    width: 100%;
+}

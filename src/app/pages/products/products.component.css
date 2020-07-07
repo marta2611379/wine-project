@@ -1,0 +1,119 @@
+.threeGoods {
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.goods {
+  width: 70%;
+  min-height: 100px;
+  margin-left: 25%;
+  padding-top: 15px;
+
+}
+
+.filters {
+  min-height: 50vh;
+  width: 20%;
+  padding: 10px 0 0 50px;
+  position: fixed;
+  top: 70px;
+}
+
+.wineColor {
+  color: rgb(92, 21, 58);
+}
+
+.card {
+  width: 250px;
+  height: 300px;
+  margin: 10px 10px;
+  padding: 0.5px;
+  border: 2px solid rgb(92, 21, 58);
+}
+
+.prodImg {
+  width: auto;
+  height: 220px;
+  margin: 8px 0;
+}
+
+.card-main {
+  width: 240px;
+  display: flex;
+}
+
+.custom-select {
+  height: 25px;
+}
+
+.filter-select {
+  height: 25px;
+  width: 70%;
+  font-size: 15px;
+  background-color: rgb(148, 141, 141);
+  border: none;
+  color: white;
+  border-radius: 8px;
+
+}
+
+.select-filter {
+  margin-bottom: 17%;
+}
+
+.select-h {
+  font-family: 'Eczar', serif;
+  color: rgb(54, 6, 22);
+  letter-spacing: 3px;
+  font-weight: bold;
+  margin-left: 1px;
+}
+
+.main-select {
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+}
+
+.main-prod {
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 62px;
+  display: flex;
+  background-image: url(/assets/img/main-bg.jpg);
+  background-size: 100% 100%;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.right-good {
+  height: 100vh;
+  width: 32%;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin-top: 130.5px;
+  background-image: url(/assets/img/red-wine-wine-glass-clip-art-wine-glass-png-image-removebg-preview-removebg-preview.png);
+}
+
+.price {
+  width: 32%;
+  margin-right: 2px;
+}
+
+.has-text-centered {
+  display: flex;
+  justify-content: center;
+}
+
+.btnCol:hover {
+  background-color: rgb(59, 9, 26)
+}
+
+.btnCol {
+  background-color: rgb(87, 15, 39);
+  margin: 0 auto;
+  width: 90%;
+}

@@ -1,0 +1,20 @@
+<nav class="adminca">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link " id="nav-wines-tab" data-toggle="tab" href="#nav-wines" role="tab"
+            aria-controls="nav-home" aria-selected="true" [routerLink]="['products']"
+            routerLinkActive="active">Wines</a>
+        <a class="nav-item nav-link" id="nav-blogs-tab" data-toggle="tab" href="#nav-blogs" role="tab"
+            aria-controls="nav-profile" aria-selected="false" [routerLink]="['blogs']"
+            routerLinkActive="active">Blogs</a>
+        <a class="nav-item nav-link " id="nav-manufacturer-tab" data-toggle="tab" href="#nav-manufacturer" role="tab"
+            aria-controls="nav-manufacturer" aria-selected="false" [routerLink]="['manufacturer']"
+            routerLinkActive="active">Manufacturers</a>
+        <a class="nav-item nav-link " id="nav-country-tab" data-toggle="tab" href="#nav-country" role="tab"
+            aria-controls="nav-country" aria-selected="false" [routerLink]="['country']"
+            routerLinkActive="active">Country</a>
+        <a class="nav-item nav-link " id="nav-order-tab" data-toggle="tab" href="#nav-order" role="tab"
+            aria-controls="nav-order" aria-selected="false" [routerLink]="['order']"
+            routerLinkActive="active">Order</a>
+    </div>
+</nav>
+<router-outlet></router-outlet>

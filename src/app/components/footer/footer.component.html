@@ -1,0 +1,36 @@
+<div class="footer">
+    <div class="hr"></div>
+    <div class="bg dark-layer">
+        <ul class="foot">
+            <li routerLinkActive="hoverLink">
+                <a class="nav-link  text-white" [routerLink]="['/home']">Головна</a>
+            </li>
+            <li routerLinkActive="hoverLink">
+                <a class="nav-link text-white " [routerLink]="['/products']">Вина</a>
+            </li>
+            <li routerLinkActive="hoverLink">
+                <a class="nav-link text-white " [routerLink]="['/blog']">Блог</a>
+            </li>
+            <li routerLinkActive="hoverLink">
+                <a class="nav-link  text-white" [routerLink]="['/about']">Про нас</a>
+            </li>
+        </ul>
+
+        <ul class="foot"  >
+            <div class="item">
+                <div class="icon" style="background-image: url(/assets/img/phone.png);"></div>
+                <li class="nav-link  text-white">marta2611379@gmail.com</li>
+            </div>
+            <div class="item">
+                <div class="icon" style="background-image: url(/assets/img/mail_ru.png);"></div>
+                <li class="nav-link  text-white">+380-934-975-099</li>
+            </div>
+            <div class="item">
+                <div class="icon" style="background-image: url(/assets/img/admin.png);" [routerLink]="['/admin']"></div>
+            </div>
+
+
+
+        </ul>
+    </div>
+</div>

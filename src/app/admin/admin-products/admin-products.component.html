@@ -1,0 +1,225 @@
+<div class="container">
+    <div class="form-group row">
+        <div class="card-body">
+            <h5 class="card-title">Select a file for upload:</h5>
+            <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+            <br><br>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                    [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="admin-container">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text prepend-lable">Виробник:</label>
+            </div>
+            <select class="prepend-input" [(ngModel)]="manufacturer" name="manufacturer">
+                <option *ngFor="let manufacturer of arrayManufacturers" value="{{manufacturer.manufacturer}}">
+                    {{manufacturer.manufacturer}}</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text prepend-lable">Країна:</label>
+            </div>
+            <select class="prepend-input" [(ngModel)]="country" name="country">
+                <option *ngFor="let country of arrayCountries" value="{{country.country}}">
+                    {{country.country}}</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text prepend-lable">Назва:</label>
+            </div>
+            <input class="prepend-input" [(ngModel)]="name" name="name" type="text">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text prepend-lable">Ціна:</label>
+            </div>
+            <input class="prepend-input" [(ngModel)]="price" name="price" type="number" min="0">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text prepend-lable">Вид:</label>
+            </div>
+            <select class="prepend-input" [(ngModel)]="type" name="type">
+                <option value="сухе">сухе</option>
+                <option value="напівсухе">напівсухе</option>
+                <option value="напівсолодке">напівсолодке</option>
+                <option value="солодке">солодке</option>
+                <option value="кріплене сухе">кріплене сухе</option>
+                <option value="кріплене напівсолодке">кріплене напівсолодке</option>
+                <option value="кріплене солодке">кріплене солодке</option>
+                <option value="кріплене десертне">кріплене десертне</option>
+                <option value="лікерне">лікерне</option>
+                <option value="ароматизоване">ароматизоване</option>
+                <option value="ігристе">ігристе</option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text prepend-lable">Колір:</label>
+            </div>
+            <select class="prepend-input" [(ngModel)]="color" name="color">
+                <option value="червоне">червоне</option>
+                <option value="біле">біле</option>
+                <option value="рожеве">рожеве</option>
+            </select>
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text prepend-lable">Про вино:</label>
+        </div>
+        <textarea rows="3" cols="150" maxlength="400" class="prepend-input" [(ngModel)]="about" name="about"
+            type="text"></textarea>
+    </div>
+    <button class="btn btn-success" (click)="addWine()" [disabled]="disabledStatusAdd()">add</button>
+
+    <br>
+    <hr>
+    <br>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th scope="col">Виробник</th>
+                <th scope="col">Назва</th>
+                <th scope="col">Ціна</th>
+                <th scope="col">Колір/Вид</th>
+                <th scope="col">Країна</th>
+                <th scope="col">Редагувати</th>
+                <th scope="col">Видалити</th>
+                <th scope="col">Зображення</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let wine of adminWines; let i=index;">
+                <td>{{i+1}}</td>
+                <td>{{wine.manufacturer}}</td>
+                <td>{{wine.name}}</td>
+                <td>{{wine.price}}</td>
+                <td>{{wine.color}}/{{wine.type}}</td>
+                <td>{{wine.country}}</td>
+                <td><button class="btn btn-warning" (click)="editWine(wine)" data-toggle="modal"
+                        data-target="#exampleModalCenter">edit</button></td>
+                <td><button class="btn btn-danger" (click)="deleteWine(wine)">delete</button></td>
+                <td><img class="adminImg" [src]=wine.image alt=""></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Edit wine</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="card-body">
+                        <h5 class="card-title">Select a file for upload:</h5>
+                        <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+                        <br><br>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                [style.width]="(uploadProgress | async) + '%'"
+                                [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="admin-container">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text prepend-lable">Виробник:</label>
+                        </div>
+                        <select class="prepend-input" [(ngModel)]="manufacturerEdit" name="manufacturerEdit">
+                            <option *ngFor="let manufacturer of arrayManufacturers"
+                                value="{{manufacturer.manufacturer}}">
+                                {{manufacturer.manufacturer}}</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text prepend-lable">Назва:</label>
+                        </div>
+                        <input class="prepend-input" [(ngModel)]="nameEdit" name="nameEdit" type="text">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text prepend-lable">Ціна:</label>
+                        </div>
+                        <input class="prepend-input" [(ngModel)]="priceEdit" name="priceEdit" type="number" min="0">
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text prepend-lable">Країна:</label>
+                        </div>
+                        <select class="prepend-input" [(ngModel)]="countryEdit" name="countryEdit">
+                            <option *ngFor="let country of arrayCountries" value="{{country.country}}">
+                                {{country.country}}</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text prepend-lable">Вид:</label>
+                        </div>
+                        <select class="prepend-input" [(ngModel)]="typeEdit" name="typeEdit">
+                            <option value="сухе">сухе</option>
+                            <option value="напівсухе">напівсухе</option>
+                            <option value="напівсолодке">напівсолодке</option>
+                            <option value="солодке">солодке</option>
+                            <option value="кріплене сухе">кріплене сухе</option>
+                            <option value="кріплене напівсолодке">кріплене напівсолодке</option>
+                            <option value="кріплене солодке">кріплене солодке</option>
+                            <option value="кріплене десертне">кріплене десертне</option>
+                            <option value="лікерне">лікерне</option>
+                            <option value="ароматизоване">ароматизоване</option>
+                            <option value="ігристе">ігристе</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text prepend-lable">Колір:</label>
+                        </div>
+                        <select class="prepend-input" [(ngModel)]="colorEdit" name="colorEdit">
+                            <option value="червоне">червоне</option>
+                            <option value="біле">біле</option>
+                            <option value="рожеве">рожеве</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text prepend-lable">Про вино:</label>
+                        </div>
+                        <textarea rows="3" cols="150" maxlength="400" class="prepend-input" [(ngModel)]="aboutEdit"
+                            name="aboutEdit" type="text"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="saveEditWine()" data-target="#exampleModalCenter"
+                    data-toggle="modal" [disabled]="disabledStatusSave()">Зберегти зміни</button>
+            </div>
+        </div>
+    </div>
+</div>

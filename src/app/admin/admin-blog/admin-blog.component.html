@@ -1,0 +1,113 @@
+<div class="container">
+
+    <div class="admin-container">
+        <div class="flex">
+            <div class="form-group row">
+                <div class="card-body">
+                    <h5 class="card-title">Select a file for upload:</h5>
+                    <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+                    <br><br>
+                    <div class="progress" style="width: 250px;">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                            [style.width]="(uploadProgress | async) + '%'"
+                            [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text prepend-lable">Назва:</label>
+                </div>
+                <input class="prepend-input" [(ngModel)]="name" name="name" type="text">
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text prepend-lable">Текст:</label>
+            </div>
+            <textarea rows="3" cols="50" maxlength="400" class="prepend-input" [(ngModel)]="text" name="text"
+                type="text"></textarea>
+        </div>
+    </div>
+
+    <button class="btn btn-success" (click)="addBlog()" [disabled]="disabledStatusAdd()">add</button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th scope="col">Назва</th>
+                <th scope="col">Текст</th>
+                <th scope="col">Дата</th>
+                <th scope="col">Редагувати</th>
+                <th scope="col">Видалити</th>
+                <th scope="col">Зображення</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let blog of adminBlogs; let i=index;">
+                <td>{{i+1}}</td>
+                <td>{{blog.name}}</td>
+                <td>{{blog.text}}</td>
+                <td>{{blog.date}}</td>
+                <td><button class="btn btn-warning" (click)="editBlog(blog)"  data-toggle="modal"
+                    data-target="#exampleModalCenter">edit</button></td>
+                <td><button class="btn btn-danger" (click)="deleteBlog(blog)">delete</button></td>
+                <td><img class="adminImg" [src]=blog.image alt=""></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fadebd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Edit blog</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <div class="admin-container">
+                            <div class="flex">
+                                <div class="form-group row">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Select a file for upload:</h5>
+                                        <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+                                        <br><br>
+                                        <div class="progress" style="width: 250px;">
+                                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                                [style.width]="(uploadProgress | async) + '%'"
+                                                [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text prepend-lable">Назва:</label>
+                                    </div>
+                                    <input class="prepend-input" [(ngModel)]="nameEdit" name="nameEdit" type="text">
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text prepend-lable">Текст:</label>
+                                </div>
+                                <textarea rows="3" cols="50" maxlength="400" class="prepend-input" [(ngModel)]="textEdit" name="textEdit"
+                                    type="text"></textarea>
+                            </div>
+                        </div>
+                    
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="saveEditWine()" data-target="#exampleModalCenter"
+                    data-toggle="modal" [disabled]="disabledStatusSave()">Зберегти зміни</button>
+            </div>
+        </div>
+    </div>
+</div>

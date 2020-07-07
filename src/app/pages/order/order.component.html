@@ -1,0 +1,63 @@
+<div class="container" style="padding-top: 100px;">
+
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let wine of orders.wines; let i = index;">
+                <td><img class="adminImg" [src]=wine.wine.image alt="img"></td>
+                <td>
+                    <p class="wineColor">{{wine.wine.name}}</p>
+                    <p> ({{wine.wine.country|wine}}/{{wine.wine.manufacturer|wine}})</p>
+                    <p class="wineColor">{{wine.wine.price}} грн.</p>
+                    <p>
+                        <!-- <button class="count" (click)="increment(wine)"> - </button> {{wine.counter}} шт. <button
+                            class="count" (click)="decrement(wine)">+</button> -->
+                    </p>
+                </td>
+                <td> <button class="count" (click)="increment(wine)"> - </button> {{wine.counter}} шт. <button
+                        class="count" (click)="decrement(wine)">+</button></td>
+                <td (click)="summ(wine)"></td>
+
+                <td> <button (click)=" delete(i)">Видалити</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="buttonBack" data-toggle="modal" data-target="#exampleModalCenter">
+        Замовити
+    </div>
+</div>
+
+<div class="modal fadebd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Контактні дані</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="admin-container">
+
+                    <div class="form-group">
+                        <label class="sr-only">Ім'я</label>
+                        <input type="text" class="form-control" [(ngModel)]="name" name="name" placeholder="username">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only">Прізвище</label>
+                        <input type="text" class="form-control" [(ngModel)]="surname" name="surname"
+                            placeholder="surname">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only">Номер телефону</label>
+                        <input type="tel" class="form-control"[(ngModel)]="tel" name="tel"
+                            placeholder="telephone: 0934975099">
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="addOrder()" data-target="#exampleModalCenter"
+            data-toggle="modal" [disabled]="disabledStatusAdd()">Зберегти зміни</button>
+        </div>
+        
+    </div>
+</div>
