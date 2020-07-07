@@ -16,7 +16,7 @@ export class OrderComponent implements OnInit {
   surname: string = 'martsinkiv';
   tel: string = '';
   disabledAdd: boolean = true;
-  sum:number=0;
+  sum: number = 0;
 
   constructor(private wineService: WineService,
     private firestore: AngularFirestore) {
@@ -25,7 +25,7 @@ export class OrderComponent implements OnInit {
     this.sumAllWines();
   }
   ngOnInit() {
-    
+
   }
   public phonenumber(): boolean {
     let phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
@@ -52,30 +52,38 @@ export class OrderComponent implements OnInit {
       wine.counter--;
     }
     localStorage.setItem('order', JSON.stringify(this.wineService.orders));
-    this.sum=0;
     this.sumAllWines();
   }
 
   public decrement(wine): void {
     wine.counter++;
     localStorage.setItem('order', JSON.stringify(this.wineService.orders));
-    this.sum=0;
     this.sumAllWines();
   }
 
-  public sumOneTypeWine(wine):number{ return wine.counter*wine.wine.price;}
+  public sumOneTypeWine(wine): number { return wine.counter * wine.wine.price; }
 
-  public sumAllWines():number{
-    let temp=this.wineService.orders.wines;
-    for( let i=0;i<temp.length;i++){
-      this.sum=this.sum + temp[i].counter*temp[i].wine.price;
+  public sumAllWines(): number {
+    this.sum = 0;
+    let temp = this.wineService.orders.wines;
+    for (let i = 0; i < temp.length; i++) {
+      this.sum = this.sum + temp[i].counter * temp[i].wine.price;
     }
     return this.sum;
   }
+
+  public counterAllWines(): number {
+    let count = 0;
+    let temp = this.wineService.orders.wines;
+    for (let i = 0; i < temp.length; i++) {
+      count += temp[i].counter;
+    }
+    return count;
+  }
+
   public delete(i): void {
     this.wineService.orders.wines.splice(i, 1);
     localStorage.setItem('order', JSON.stringify(this.wineService.orders));
-    this.sum=0;
     this.sumAllWines();
   }
 
@@ -92,8 +100,6 @@ export class OrderComponent implements OnInit {
       }).catch(function (error) {
         console.error("Error adding document: ", error);
       });
-    } else {
-
     }
 
     this.wineService.orders = {
@@ -107,6 +113,7 @@ export class OrderComponent implements OnInit {
     }
 
     localStorage.removeItem('order');
+    this.sumAllWines();
   }
 
 }

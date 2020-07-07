@@ -18,10 +18,9 @@ export class AdminOrdersComponent implements OnInit {
 
   ngOnInit() {
   }
- 
+
   public checkboxClick(order): void {
     this.idOrder = order.id;
-
     this.firestore.collection('orders').doc(this.idOrder).update({
       status: order.status = !order.status
     }).then(function () {
@@ -31,7 +30,7 @@ export class AdminOrdersComponent implements OnInit {
     });
   }
 
-   public deleteOrder(order): void {
+  public deleteOrder(order): void {
     this.firestore.collection('orders').doc(order.id).delete().then(function () {
       console.log("Document successfully deleted!");
     }).catch(function (error) {
