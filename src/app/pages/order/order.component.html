@@ -1,5 +1,4 @@
 <div class="container" style="padding-top: 100px;">
-
     <table class="table">
         <tbody>
             <tr *ngFor="let wine of orders.wines; let i = index;">
@@ -8,21 +7,17 @@
                     <p class="wineColor">{{wine.wine.name}}</p>
                     <p> ({{wine.wine.country|wine}}/{{wine.wine.manufacturer|wine}})</p>
                     <p class="wineColor">{{wine.wine.price}} грн.</p>
-                    <p>
-                        <!-- <button class="count" (click)="increment(wine)"> - </button> {{wine.counter}} шт. <button
-                            class="count" (click)="decrement(wine)">+</button> -->
-                    </p>
                 </td>
                 <td> <button class="count" (click)="increment(wine)"> - </button> {{wine.counter}} шт. <button
                         class="count" (click)="decrement(wine)">+</button></td>
-                <td (click)="summ(wine)"></td>
+                <td>{{sumOneTypeWine(wine)}} грн.</td>
 
                 <td> <button (click)=" delete(i)">Видалити</button></td>
             </tr>
         </tbody>
     </table>
     <div class="buttonBack" data-toggle="modal" data-target="#exampleModalCenter">
-        Замовити
+        Замовити<br> {{sum}} грн.
     </div>
 </div>
 

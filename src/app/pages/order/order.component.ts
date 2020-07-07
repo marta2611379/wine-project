@@ -3,6 +3,7 @@ import { WineService } from 'src/app/shared/services/wine.service';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Wine } from 'src/app/shared/classes/wine.model';
 
 @Component({
   selector: 'app-order',
@@ -21,15 +22,15 @@ export class OrderComponent implements OnInit {
     private firestore: AngularFirestore) {
     this.orders = wineService.orders;
     console.log(this.orders);
-
+    this.sumAllWines();
   }
   ngOnInit() {
+    
   }
   public phonenumber(): boolean {
     let phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
     if (this.tel.match(phoneno)) {
       console.log('+');
-
       return true;
     }
     else {
@@ -51,20 +52,31 @@ export class OrderComponent implements OnInit {
       wine.counter--;
     }
     localStorage.setItem('order', JSON.stringify(this.wineService.orders));
+    this.sum=0;
+    this.sumAllWines();
   }
 
   public decrement(wine): void {
     wine.counter++;
     localStorage.setItem('order', JSON.stringify(this.wineService.orders));
+    this.sum=0;
+    this.sumAllWines();
   }
 
-  public summ(wine):number{
-  this.sum= wine.counter*wine.price;
-  return this.sum;
+  public sumOneTypeWine(wine):number{ return wine.counter*wine.wine.price;}
+
+  public sumAllWines():number{
+    let temp=this.wineService.orders.wines;
+    for( let i=0;i<temp.length;i++){
+      this.sum=this.sum + temp[i].counter*temp[i].wine.price;
+    }
+    return this.sum;
   }
   public delete(i): void {
     this.wineService.orders.wines.splice(i, 1);
     localStorage.setItem('order', JSON.stringify(this.wineService.orders));
+    this.sum=0;
+    this.sumAllWines();
   }
 
   public addOrder(): void {
