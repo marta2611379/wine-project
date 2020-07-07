@@ -1,0 +1,141 @@
+{
+  "blogs": [
+    {
+      "id": 9,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2Ft4n3i5tk0mg?alt=media&token=4b98aca8-7e45-4ab5-9f2b-ca1b51ce0494",
+      "name": "Піно-нуар та страви з грибами",
+      "text": "Практично усі страви, приготовані з грибами (трюфелі, як завжди, займають особливе місце), чудово поєднуються з такими червоними винами, як піно-нуар і дольчетто - легкими, але водночас повними смаку."
+    },
+    {
+      "id": 10,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2Fknmt3fo7bxj?alt=media&token=2da7d282-1a31-4885-9a93-2543f413a804",
+      "name": "Шампанське і солоні страви",
+      "text": "Більшість сухих ігристих вин - таких як шампанське брют та іспанська кава, мають слабкий відтінок солодкавості. Це робить їх поєднання з солоними продуктами більш тонким та вишуканим. Подавайте шампанське, наприклад, із хрусткою локшиною удон. Будете приємно здивовані."
+    },
+    {
+      "id": 12,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2F9e4t6b0ntee?alt=media&token=85c4a28d-49fa-4aa5-951b-6c228bbbf0db",
+      "name": "Каберне совіньйон і соковите червоне м’ясо",
+      "text": "Каліфорнійські каберне надзвичайно добре поєднуються зі стейками та відбивними. Не забудьте додати до страв трохи цибулі"
+    },
+    {
+      "id": 13,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2Fm1jp1ldcu98?alt=media&token=468203d0-0a09-4562-b076-54e945f34e14",
+      "name": "Совіньйон блан і терпкі соуси",
+      "text": "Гострі морські гребінці з салатом із грейпфруту та руколи всупереч очікуванням не будуть пригнічувати совіньйон блан, виньо-верде з Португалії або вердехо з Іспанії, а навпаки, підкреслять їх смак."
+    },
+    {
+      "id": 16,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2F6wtbl75ny3u?alt=media&token=c2905d0c-4471-405c-86e3-bed007d90d81",
+      "name": "Піно гріджіо та легкі рибні страви",
+      "text": "Легкі страви з морепродуктів (наприклад, тарталетки з морепродуктами) набудуть більше смаку у поєднанні з такими делікатними білими винами, як піно гріджіо, арнеїс з Італії або шаблі з Франції."
+    },
+    {
+      "id": 17,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2Ffki1j7akolv?alt=media&token=3a52c97e-422c-4b20-9d1a-3c2c0cae1916",
+      "name": "Мальбек і солодкий соус барбекю",
+      "text": "Мальбек, шираз і кот-дю-рон - сильні та сміливі вина. Настільки, що їх благородний смак не перебити навіть соусом барбекю. Позаяк сміливо подавайте ці вина, наприклад, з курячими гомілками, щедро приправленими цим соусом."
+    },
+    {
+      "id": 18,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2Fv1jkikex8lc?alt=media&token=4eb0ab33-dd62-4fd2-ba92-a776b02739d8",
+      "name": "Москато д’Асті та фруктові десерти",
+      "text": "Помірно солодкі ігристі вина - такі як москато д’Асті або асті спуманте, допоможуть підкреслити фруктові десерти. Спробуйте їх, наприклад, з італійською кростатою - відкритим пирогом із фруктами. Почати радимо із медової кростати з інжиром."
+    },
+    {
+      "id": 19,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2Fpvtxt2jdyo9?alt=media&token=e70fc2ad-f575-40b9-b3d4-cf47d2ff449a",
+      "name": "Шардоне Та Морепродукти",
+      "text": "Шовковисті білі вина - наприклад, шардоне із Каліфорнії, Чилі або Австралії - неперевершені з рибою. У цьому випадку чудово підійдуть лосось та будь-які морепродукти з густими соусами."
+    },
+    {
+      "id": 20,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2Fmjeg7wwjthm?alt=media&token=8fbbcc04-1aca-4f94-a3f3-3ff597e96454",
+      "name": "Blog Edit",
+      "text": "Більшість сухих ігристих вин - таких як шампанське брют та іспанська кава, мають слабкий відтінок солодкавості. Це робить їх поєднання з солоними продуктами більш тонким та вишуканим. Подавайте шампанське, наприклад, із хрусткою локшиною удон. Будете приємно здивовані."
+    },
+    {
+      "id": 21,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2F9tps96xxwxr?alt=media&token=18c92b6e-fcf9-49de-a52f-226b0d5a2c73",
+      "name": "Blog Edit Img2",
+      "text": "Більшість сухих ігристих вин - таких як шампанське брют та іспанська кава, мають слабкий відтінок солодкавості. Це робить їх поєднання з солоними продуктами більш тонким та вишуканим. Подавайте шампанське, наприклад, із хрусткою локшиною удон. Будете приємно здивовані."
+    },
+    {
+      "id": 22,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/blogs%2Fntyq475l5x?alt=media&token=f26ad170-3e5f-49d1-8255-5d0d6508ce50",
+      "name": "Винні табу",
+      "text": "Страви з оцтом, гірчицею та часником ― роблять смак напою кислим і неприємним.\nХрін і васабі — «вбивці» вина, повністю руйнують букет винограду.\nЖуравлинний соус ― заглушає фруктові нотки напою.\nАрахіс ― нейтралізує аромат вина. Підходять інші горіхи, наприклад, кеш’ю, мигдаль."
+    }
+  ],
+  "products": [
+    {
+      "id": 25,
+      "manufacturer": "Chizay",
+      "name": "Cabernet Sauvignon",
+      "color": "Червоне",
+      "type": "сухе",
+      "country": "Україна",
+      "price": 187,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/images%2F7oti48wb6b?alt=media&token=70d69413-3519-4023-9d41-b4a7efd6f629"
+    },
+    {
+      "id": 26,
+      "manufacturer": "Chizay",
+      "name": "Cuvée (Кюве)",
+      "color": "Червоне",
+      "type": "сухе",
+      "country": "Україна",
+      "price": 197,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/images%2Fukyxfxabh3a?alt=media&token=ce1afee2-6955-4cde-a424-11f9cbb63a00"
+    },
+    {
+      "id": 27,
+      "manufacturer": "Chizay",
+      "name": "Furmint",
+      "color": "Біле",
+      "type": "сухе",
+      "country": "Україна",
+      "price": 187,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/images%2Foyp5kwu2nji?alt=media&token=996f7159-1ae6-4979-91c5-1997b3408ec7"
+    },
+    {
+      "id": 28,
+      "manufacturer": "Chizay",
+      "name": "Merlot",
+      "color": "Червоне",
+      "type": "сухе",
+      "country": "Україна",
+      "price": 197,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/images%2F271ctm05l8k?alt=media&token=39a743c1-228c-4220-ba9d-fcaa6f9d7a90"
+    },
+    {
+      "id": 29,
+      "manufacturer": "Chizay",
+      "name": "Pinot Noir",
+      "color": "Червоне",
+      "type": "сухе",
+      "country": "Україна",
+      "price": 270,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/images%2Fueoufjyajpe?alt=media&token=cc363c42-dcce-4602-b3f9-2fe1bab1e64c"
+    },
+    {
+      "id": 30,
+      "manufacturer": "Donnagugata",
+      "name": "Melot",
+      "color": "Червоне",
+      "type": "сухе",
+      "country": "Грузія",
+      "price": 200,
+      "image": "https://firebasestorage.googleapis.com/v0/b/final-project-7f460.appspot.com/o/images%2F3t1x52t1wyp?alt=media&token=feaddb2c-76b7-48d3-a200-3a4709dec7af"
+    },
+    {
+      "id": 31,
+      "manufacturer": "Donnagugata",
+      "name": "принципи класичного поєднання",
+      "color": "Червоне",
+      "type": "ігристе",
+      "country": "Грузія",
+      "price": 110
+    }
+  ]
+}
