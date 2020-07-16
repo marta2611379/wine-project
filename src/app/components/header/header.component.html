@@ -18,7 +18,7 @@
             </li> -->
             <li class="nav-item"  (click)="scrollToTop()">
                 <a class="nav-link text-white order" routerLinkActive=" order-click" [routerLink]="['/order']">
-                    <div class="order1"> <span class="badge badge-pill badge-danger shoperPill">4</span></div>
+                    <div class="order1"> <span class="badge badge-pill badge-danger shoperPill">{{counterAllWines()}}</span></div>
                 </a>
             </li>
         </ul>

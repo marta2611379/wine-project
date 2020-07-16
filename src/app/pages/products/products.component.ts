@@ -33,6 +33,7 @@ export class ProductsComponent implements OnInit {
 
   page: number = 1;
   navIsFixed: boolean;
+  ind: boolean;
 
   constructor(private wineService: WineService,
     @Inject(DOCUMENT) private document: Document) {
@@ -40,6 +41,7 @@ export class ProductsComponent implements OnInit {
     this.getAdminManufacturers();
     console.log(wineService.data);
     wineService.data = 3;
+    this.toShoper();
   }
 
   ngOnInit() {
@@ -98,11 +100,11 @@ export class ProductsComponent implements OnInit {
       }
     };
     this.wineService.orders =
-      {
-        id: wine.id,
-        wines: this.wineService.wineArr
-      }
-      localStorage.setItem('order', JSON.stringify( this.wineService.orders));
+    {
+      id: wine.id,
+      wines: this.wineService.wineArr
+    }
+    localStorage.setItem('order', JSON.stringify(this.wineService.orders));
   }
 
   public wineComponent(wine, wineId): string {
@@ -121,14 +123,14 @@ export class ProductsComponent implements OnInit {
     this.wineService.getCountry().subscribe(country => (this.arrayCountries = country));
   }
 
-  public onChangePriceStart(event): void {  
+  public onChangePriceStart(event): void {
     this.priceValStart = event.target.value;
     if (this.priceValStart >= this.priceValEnd) {
       this.priceValEnd = 10000;
     }
   }
 
-  public onChangePriceEnd(event): void {  
+  public onChangePriceEnd(event): void {
     this.priceValEnd = event.target.value;
     if (this.priceValEnd <= this.priceValStart) {
       console.log('end', this.priceValEnd);
@@ -155,6 +157,11 @@ export class ProductsComponent implements OnInit {
 
   public getAdminWine(): void {
     this.wineService.getWines().subscribe(wines => (this.adminWines = wines));
+  }
+
+  public toShoper(): void {
+    this.ind = !this.ind;
+
   }
 
 

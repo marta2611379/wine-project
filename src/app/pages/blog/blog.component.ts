@@ -10,6 +10,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class BlogComponent implements OnInit {
 
+  page:string;
   arrBlog: Array<IBlog> = [];
   adminBlogs: Array<IBlog> = [];
 

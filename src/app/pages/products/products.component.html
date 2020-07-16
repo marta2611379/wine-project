@@ -66,7 +66,10 @@
             <li class="list-group-item wineColor">{{wine.color|wine}} {{wine.type}}</li>
           </ul>
         </div>
-        <button class="card-link btn btn-block text-white btnCol" (click)="orders(wine)">У кошик</button>
+        <button class="card-link btn btn-block text-white btnCol" (click)="[orders(wine), toShoper()]">
+          У кошик
+          <div [ngClass]="{'plusOne': ind}"></div>
+        </button>
       </div>
     </div>
     <div class="has-text-centered" (click)="scrollToTop()">

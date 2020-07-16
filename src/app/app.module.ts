@@ -32,6 +32,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { WinePipe } from './shared/pipes/wine.pipe';
 import { WineColorPipe } from './shared/pipes/wine-color.pipe';
+
 import { WineNamePipe } from './shared/pipes/wine-name.pipe';
 import { WinePricePipe } from './shared/pipes/wine-price.pipe';
 import { WineTypePipe } from './shared/pipes/wine-type.pipe';

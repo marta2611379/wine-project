@@ -29,7 +29,6 @@
 .imgCon {
     height: 200px;
     width: 100%;
-    background-image: url(image.png);
     background-position: left;
     background-size: contain;
     background-repeat: no-repeat;

@@ -19,20 +19,27 @@ import { Order } from '../classes/order.model';
 export class WineService {
   private urlP: string;
   private urlB: string;
-
   db = firebase.firestore();
-
   manufacturer: Array<IManufacturer>;
-
   data: number = 1;
   orders: IOrder;
   wineArr: IWines[] = [];
+  count: number;
+
   constructor(
     private http: HttpClient,
     private firestore: AngularFirestore) {
-    this.orders = JSON.parse(localStorage.getItem('order'))
-    // JSON.stringify(this.orders);
-    // this.orders.JSon
+    this.orders = JSON.parse(localStorage.getItem('order'));
+    this.counterAllWines();
+  }
+
+  public counterAllWines(): number {
+    this.count = 0;
+    let temp = this.orders.wines;
+    for (let i = 0; i < temp.length; i++) {
+      this.count += temp[i].counter;
+    }
+    return this.count;
   }
 
 

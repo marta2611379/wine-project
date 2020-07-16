@@ -17,6 +17,7 @@ export class OrderComponent implements OnInit {
   tel: string = '';
   disabledAdd: boolean = true;
   sum: number = 0;
+  count: number;
 
   constructor(private wineService: WineService,
     private firestore: AngularFirestore) {
@@ -70,15 +71,6 @@ export class OrderComponent implements OnInit {
       this.sum = this.sum + temp[i].counter * temp[i].wine.price;
     }
     return this.sum;
-  }
-
-  public counterAllWines(): number {
-    let count = 0;
-    let temp = this.wineService.orders.wines;
-    for (let i = 0; i < temp.length; i++) {
-      count += temp[i].counter;
-    }
-    return count;
   }
 
   public delete(i): void {

@@ -1,5 +1,8 @@
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { WineService } from 'src/app/shared/services/wine.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { IOrder } from 'src/app/shared/interfaces/order.interface';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +10,24 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  orders:IOrder;
+  count:number=0;
   title = 'Hard Hitter@Cool';
   navIsFixed: boolean;
-  constructor(@Inject(DOCUMENT) private document: Document) { }
-
-  ngOnInit() {
+  constructor(@Inject(DOCUMENT) private document: Document, 
+    public wineService: WineService) {
+    this.orders = this.wineService.orders;
+    this.counterAllWines();
   }
 
+  
+
+  ngOnInit() {}
+  
+  public counterAllWines():number{
+   return this.wineService.counterAllWines();
+  }
+ 
   @HostListener("window:scroll", [])
   onWindowScroll() {
     if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
